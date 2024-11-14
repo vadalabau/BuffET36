@@ -1,0 +1,32 @@
+-- Crear la base de datos
+CREATE DATABASE buffet;
+
+-- Seleccionar la base de datos
+USE buffet;
+
+-- Crear la tabla de usuarios
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,    -- id del usuario (clave primaria)
+    nombre VARCHAR(255) NOT NULL,          -- nombre del usuario
+    contraseña VARCHAR(255) NOT NULL,      -- contraseña del usuario
+    es_admin BOOLEAN DEFAULT FALSE        -- indicador de si es admin (opcional)
+);
+
+-- Crear la tabla de productos
+CREATE TABLE productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,    -- id del producto (clave primaria)
+    nombre VARCHAR(255) NOT NULL,          -- nombre del producto
+    precio DECIMAL(10, 2) NOT NULL,       -- precio del producto
+    cantidad INT NOT NULL                 -- cantidad disponible del producto
+);
+
+-- Crear la tabla de reservas
+CREATE TABLE reservas (
+    id INT AUTO_INCREMENT PRIMARY KEY,    -- id de la reserva (clave primaria)
+    producto_id INT,                      -- id del producto reservado (clave foránea)
+    usuario_id INT,                       -- id del usuario que realiza la reserva (clave foránea)
+    cantidad INT NOT NULL,                 -- cantidad de producto reservado
+    horario DATETIME NOT NULL,            -- horario de la reserva
+    FOREIGN KEY (producto_id) REFERENCES productos(id),  -- clave foránea con productos
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)     -- clave foránea con usuarios
+);

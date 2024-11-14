@@ -1,0 +1,5 @@
+SELECT * FROM reservas;
+SELECT * FROM usuarios WHERE id = 1;
+SELECT * FROM productos WHERE id = 1;
+SHOW CREATE TABLE reservas;
+DESCRIBE reservas;

@@ -1,0 +1,6 @@
+com\mycompany\buffet\TiendaVirtual.class
+com\mycompany\buffet\Usuario.class
+com\mycompany\buffet\ConexionDB.class
+com\mycompany\buffet\Main.class
+com\mycompany\buffet\Producto.class
+com\mycompany\buffet\Reserva.class
